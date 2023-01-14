@@ -13,15 +13,17 @@ const promise = new Promise((resolve, reject) => {
 
 promise
     .then(result => '哈哈哈')
-    .catch(result => {
-        console.log('异常' + result)
-        throw new Error('错误')
+    .catch(reason => {
+        console.log('异常' + reason)
+        // throw new Error('错误')
         return '嘻嘻嘻'
     })
-    .then(result => console.log(result))
+    .then(result => {
+        console.log(result)
+        return '我返回了结果'
+    })
     .catch(reason => '哈哈哈')
     .then(result => console.log(result))
-
 /*
     Promise中的
         then (return new Promise())
